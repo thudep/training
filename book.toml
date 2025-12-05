@@ -1,0 +1,23 @@
+[book]
+authors = ["Qhy23"]
+title = "工物科协技术培训"
+description = "清华大学工程物理系学生科协技术培训"
+language = "zh-CN"
+src = "src"
+
+[preprocessor.katex]
+after = ["links"]
+output = "htmlAndMathml"
+pre-render = true
+
+[output.html]
+git-repository-url = "https://git.tsinghua.edu.cn/dep-training/training"
+
+[output.html.search]
+boost-hierarchy = 2
+boost-paragraph = 1
+boost-title = 2
+expand = true
+heading-split-level = 2
+limit-results = 20
+use-boolean-and = true
