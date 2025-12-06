@@ -11,6 +11,7 @@ output = "htmlAndMathml"
 pre-render = true
 
 [output.html]
+additional-css = ["css/fontsize.css"]
 git-repository-url = "https://git.tsinghua.edu.cn/dep-training/training"
 
 [output.html.search]
