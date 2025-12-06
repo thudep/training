@@ -5,3 +5,4 @@
 # git 培训
 
 - [讲义](./data/git.md)
+- [练习](./data/git-practice.md)
