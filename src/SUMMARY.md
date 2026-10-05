@@ -2,7 +2,7 @@
 
 [主页](./main.md)
 
-# git 培训
+# Git 培训
 
-- [讲义](./data/git.md)
-- [练习](./data/git-practice.md)
+- [讲义](./git/git.md)
+- [练习](./git/git-practice.md)

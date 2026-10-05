@@ -1,6 +1,23 @@
 # 工物科协技术培训
 
 - [主页](./main.md)
-- git 培训
-  - [讲义](./data/git.md)
-  - [练习](./data/git-practice.md)
+- Linux 培训
+  - WSL
+  - 基本命令行工具
+- Git 培训
+  - [讲义](./git/git.md)
+  - [练习](./git/git-practice.md)
+- Python 培训
+  - Python 环境管理
+  - Python 基础
+  - 常用 Python 包
+  - 深度学习基础与 PyTorch
+- MATLAB 培训
+  - MATLAB 基础
+  - 数值计算
+- 写作工具培训
+  - Markdown
+  - LaTex
+  - Typst
+- AI 使用培训
+  - Claude

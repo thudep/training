@@ -1,3 +1,3 @@
-# DEP Training
+# training
 
 清华大学工程物理系学生科协技术培训
