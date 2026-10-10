@@ -23,3 +23,7 @@
   - Typst
 - AI 使用培训
   - Claude
+
+# 培训视频
+
++ [Linux 培训](https://meeting.tencent.com/crm/lRDVqYp194)
