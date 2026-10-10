@@ -244,11 +244,7 @@ mv /tmp/logs/ ./       # 将 /tmp/logs 目录移动到当前目录
 sudo apt update  # 以 root 权限更新软件包列表（Ubuntu/Debian 系统）
 ```
 
-
-
-![删库跑路](E:/Files/THUSAST/train/training/src/linux/img/bomb.gif)
-
-
+![删库跑路](./img/bomb.gif)
 
 > [!WARNIng]
 >
