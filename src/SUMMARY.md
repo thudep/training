@@ -13,3 +13,7 @@
 
 - [讲义](./git/git.md)
 - [练习](./git/git-practice.md)
+
+# Python 培训
+
+- [Python 安装](./python/installation.md)
