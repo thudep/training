@@ -17,3 +17,6 @@
 # Python 培训
 
 - [Python 安装](./python/installation.md)
+- [基本语法与数据类型](./python/grammar_and_data_type.md)
+- [函数](./python/function.md)
+- [代码规范](./python/code_standards.md)
