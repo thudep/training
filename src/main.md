@@ -11,9 +11,9 @@
   - [练习](./git/git-practice.md)
 - Python 培训
   - [Python 安装](./python/installation.md)
-  - Python 基础
-  - 常用 Python 包
-  - 深度学习基础与 PyTorch
+  - [基本语法与数据类型](./python/grammar_and_data_type.md)
+  - [函数](./python/function.md)
+  - [代码规范](./python/code_standards.md)
 - MATLAB 培训
   - MATLAB 基础
   - 数值计算
