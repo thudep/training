@@ -24,10 +24,10 @@
   - 数值计算
 - 写作工具培训
   - Markdown
-  - LaTex
+  - LaTeX
   - Typst
 - AI 使用培训
-  - Claude
+  - AI Agent
 
 # 培训视频
 
