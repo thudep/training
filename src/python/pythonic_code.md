@@ -1,54 +1,53 @@
-# Pythonic代码
+# Pythonic 代码
 
 ## Pythonic
 
 指符合 Python 设计哲学的代码风格：简洁、清晰、可读，充分利用 Python 的语言特性，而不是照搬 C/C++ 或 Java 的写法。
 
-
-
 下面是一些经典的 **Non-Pythonic vs. Pythonic** 对比。
-
 
 ### 1. 交换变量：序列解包
 
-Python 支持通过多重赋值同时绑定多个变量
+Python 支持通过多重赋值同时绑定多个变量。
 
-```
+```python
 a = 10
 b = 8
 ```
 
-Non-Pythonic
+**Non-Pythonic**
 
-```
+```python
 temp = a
 a = b
 b = temp
 ```
 
-Pythonic
+**Pythonic**
 
-```
+```python
 a, b = b, a
+```
+
+查看结果：
+
+```python
+print(a, b)
 ```
 
 输出：
 
+```text
+8 10
 ```
-print(a, b)
-```
 
-8,10
-
-右侧表达式会先求值，再将结果分别赋给左侧变量，因此不需要临时变量
-
-
+右侧表达式会先求值，再将结果分别赋给左侧变量，因此不需要临时变量。
 
 ### 2. 条件判断：Truthiness
 
 Python 允许直接使用对象的真假值（Truthiness）进行条件判断。
 
-```
+```python
 items = [1, 5, 7]
 
 def process(items):
@@ -57,7 +56,7 @@ def process(items):
 
 **Non-Pythonic**
 
-```
+```python
 if len(items) > 0:
     items = process(items)
 
@@ -66,7 +65,7 @@ print(items)
 
 **Pythonic**
 
-```
+```python
 if items:
     items = process(items)
 
@@ -75,25 +74,23 @@ print(items)
 
 输出：
 
-```
+```text
 [2, 6, 8]
 ```
 
 空列表、空字典、空字符串、数字 `0` 和 `None` 等在布尔判断中都被视为 `False`。
 
-
-
-### **3. 多重条件判断：字典映射**
+### 3. 多重条件判断：字典映射
 
 对于固定值与固定结果之间的对应关系，可以使用字典代替冗长的条件分支。
 
-```
+```python
 OS = "macOS"
 ```
 
 **Non-Pythonic**
 
-```
+```python
 if OS == "GNU/Linux":
     print("大佬，请用Debian的APT工具")
 elif OS == "macOS":
@@ -106,7 +103,7 @@ else:
 
 **Pythonic**
 
-```
+```python
 package_manager = {
     "GNU/Linux": "请用Debian的APT工具",
     "macOS": "请用UTM，然后安装Debian",
@@ -122,25 +119,23 @@ else:
 
 输出：
 
-```
+```text
 大佬，请用UTM，然后安装Debian
 ```
 
-字典通过键（Key）查找对应的值（Value），适合实现固定映射关系
+字典通过键（Key）查找对应的值（Value），适合实现固定映射关系。
 
-
-
-### **4. 字典空白访问：**`get()`
+### 4. 字典空白访问：`get()`
 
 字典的 `get()` 方法可以在键不存在时返回指定的默认值。
 
-```
+```python
 data = {"mass": 1.67e-27}
 ```
 
 **Non-Pythonic**
 
-```
+```python
 if "energy" in data:
     e = data["energy"]
 else:
@@ -149,31 +144,29 @@ else:
 
 **Pythonic**
 
-```
+```python
 e = data.get("energy", 0)
 ```
 
 输出：
 
-```
+```text
 0
 ```
 
 `data.get(key, default)` 在键存在时返回对应的值，否则返回 `default`。如果没有指定默认值，则返回 `None`。
 
-
-
-### **5. 使用** `any()` **和** `all()`
+### 5. 使用 `any()` 和 `all()`
 
 `any()` 判断是否至少有一个元素满足条件，`all()` 判断是否所有元素都满足条件。
 
-```
+```python
 values = [9, 99, 999]
 ```
 
 **Non-Pythonic**
 
-```
+```python
 found = False
 
 for x in values:
@@ -186,20 +179,20 @@ print(found)
 
 **Pythonic**
 
-```
+```python
 found = any(x > 100 for x in values)
 print(found)
 ```
 
 输出：
 
-```
+```text
 True
 ```
 
 如果需要判断是否所有元素都大于 0：
 
-```
+```python
 all(x > 0 for x in values)
 # True
 ```
@@ -208,94 +201,86 @@ all(x > 0 for x in values)
 
 `any()` 和 `all()` 都支持短路求值：一旦结果能够确定，就停止继续迭代。
 
-
-
 Python 支持将函数作为参数传递给其他函数。`map()`、`filter()` 和 `reduce()` 是函数式编程中的三个经典操作。
 
-
-
-### **6. 遍历序列：in直接迭代**
+### 6. 遍历序列：`in` 直接迭代
 
 Python 可以直接遍历可迭代对象（Iterable），无需通过索引访问元素。
 
-```
+```python
 items = ["苹果", "香蕉", "李子", "火龙果"]
 ```
 
 **Non-Pythonic**
 
-```
+```python
 for i in range(len(items)):
     print(items[i])
 ```
 
 **Pythonic**
 
-```
+```python
 for item in items:
     print(item)
 ```
 
 如果同时需要索引和值，可以使用 `enumerate()`：
 
-```
+```python
 for i, item in enumerate(items):
     print(i, item)
 ```
 
 输出：
 
-```
+```text
 0 苹果
 1 香蕉
 2 李子
 3 火龙果
 ```
 
-
-
-### **7. 同时遍历多个序列：**`zip()`
+### 7. 同时遍历多个序列：`zip()`
 
 `zip()` 可以将多个可迭代对象中的元素逐一配对。
 
-```
+```python
 names = ["张三", "李四", "王五"]
 scores = [100, 98, 99, 59]
 ```
 
 **Non-Pythonic**
 
-```
+```python
 for i in range(len(names)):
     print(names[i], scores[i])
 ```
 
 **Pythonic**
 
-```
+```python
 for name, score in zip(names, scores):
     print(name, score)
 ```
 
 输出：
 
-```
+```text
 张三 100
 李四 98
 王五 99
 ```
 
-`zip()` 默认在最短的序列结束时停止，多余的元素会被忽略
+`zip()` 默认在最短的序列结束时停止，多余的元素会被忽略。
 
-
-
-### **8. 列表推导式**
+### 8. 列表推导式
 
 列表推导式将循环、表达式和可选的条件筛选组合在一起，用于构造新列表。
 
 **Non-Pythonic**
 
-```
+```python
 squares = []
 
 for x in range(10):
@@ -306,47 +291,45 @@ print(squares)
 
 **Pythonic**
 
-```
+```python
 squares = [x**2 for x in range(10)]
 print(squares)
 ```
 
 输出：
 
-```
+```text
 [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 ```
 
 还可以加入条件，只计算偶数的平方：
 
-```
+```python
 squares = [x**2 for x in range(10) if x % 2 == 0]
 print(squares)
 ```
 
 输出：
 
-```
+```text
 [0, 4, 16, 36, 64]
 ```
 
 列表推导式的基本结构是：
 
-```
+```python
 [expression for item in iterable if condition]
 ```
 
 其中 `if condition` 可以省略。对于复杂的嵌套逻辑，普通循环可能更易读。
 
+### 9. 映射：`map()`
 
-
-### **9. 映射：**`map()`
-
-`map()` 将指定函数应用于可迭代对象中的各个元素，返回一个迭代器
+`map()` 将指定函数应用于可迭代对象中的各个元素，返回一个迭代器。
 
 **Non-Pythonic**
 
-```
+```python
 text_numbers = ["10", "20", "30"]
 numbers = []
 
@@ -356,7 +339,7 @@ for text in text_numbers:
 
 **Pythonic**
 
-```
+```python
 text_numbers = ["10", "20", "30"]
 
 list(map(int, text_numbers))
@@ -364,27 +347,25 @@ list(map(int, text_numbers))
 
 也可以使用列表推导式：
 
-```
+```python
 [int(text) for text in text_numbers]
 ```
 
 输出：
 
-```
+```text
 [10, 20, 30]
 ```
 
 `map(function, iterable)` 会依次将元素传入 `function`，得到转换后的结果。
 
-
-
-### **10. 过滤：**`filter()`
+### 10. 过滤：`filter()`
 
 `filter()` 根据判断函数的返回值，保留满足条件的元素，并返回迭代器。
 
 **Non-Pythonic**
 
-```
+```python
 samples = [-2, 0, 3, 5]
 result = []
 
@@ -395,7 +376,7 @@ for number in samples:
 
 **Pythonic**
 
-```
+```python
 def is_positive(number):
     return number > 0
 
@@ -406,27 +387,25 @@ list(filter(is_positive, samples))
 
 也可以使用列表推导式：
 
-```
+```python
 [number for number in samples if is_positive(number)]
 ```
 
 输出：
 
-```
+```text
 [3, 5]
 ```
 
-`filter(function, iterable)` 依次将元素传入判断函数，只保留返回值为真（Truthy）的元素
+`filter(function, iterable)` 依次将元素传入判断函数，只保留返回值为真（Truthy）的元素。
 
-
-
-### **11. 归约：**`reduce()`
+### 11. 归约：`reduce()`
 
 `reduce()` 使用二元函数依次合并可迭代对象中的元素，最终得到一个结果。
 
 **Non-Pythonic**
 
-```
+```python
 factors = [1, 2, 3, 4, 5]
 product = 1
 
@@ -438,7 +417,7 @@ print(product)
 
 **函数式写法**
 
-```
+```python
 from functools import reduce
 
 factors = [1, 2, 3, 4, 5]
@@ -454,7 +433,7 @@ print(product)
 
 **更 Pythonic 的写法**
 
-```
+```python
 from math import prod
 
 factors = [1, 2, 3, 4, 5]
@@ -465,7 +444,7 @@ print(product)
 
 输出：
 
-```
+```text
 120
 ```
 
@@ -473,15 +452,13 @@ print(product)
 
 对于求和、求乘积等常见操作，通常优先使用 `sum()`、`math.prod()` 等语义更明确的函数。
 
-
-
-### **12. 函数自我递归**
+### 12. 函数自我递归
 
 递归是指函数在执行过程中调用自身，通常需要设置终止条件，避免无限递归。
 
 **循环实现**
 
-```
+```python
 def div2(n):
     while True:
         print(n)
@@ -494,7 +471,7 @@ div2(123)
 
 **递归实现**
 
-```
+```python
 def div2(n):
     print(n)
     if n > 1:
@@ -505,7 +482,7 @@ div2(123)
 
 输出：
 
-```
+```text
 123
 61
 30
@@ -519,19 +496,17 @@ div2(123)
 
 递归并不一定比循环更 Pythonic。Python 没有尾递归优化，并且存在递归深度限制。对于简单重复计算，循环通常更合适；递归则适用于树结构、嵌套数据和分治算法等问题。
 
-
-
 ### 13. `itertools`
 
 `itertools` 是 Python 标准库中的迭代工具模块，提供累积运算、排列组合等功能。
 
 这些工具通常采用惰性求值（Lazy Evaluation），按需生成元素，而不是一次性构造所有结果。
 
-#### **13.1 累积最大值：**`accumulate()`
+#### 13.1 累积最大值：`accumulate()`
 
 **Non-Pythonic**
 
-```
+```python
 data = [3, 4, 6, 2, 1, 9, 0, 7, 5, 8]
 result = []
 current_max = data[0]
@@ -544,7 +519,7 @@ for x in data:
 
 **Pythonic**
 
-```
+```python
 import itertools as it
 
 data = [3, 4, 6, 2, 1, 9, 0, 7, 5, 8]
@@ -554,17 +529,17 @@ list(it.accumulate(data, max))
 
 输出：
 
-```
+```text
 [3, 4, 6, 6, 6, 9, 9, 9, 9, 9]
 ```
 
 `accumulate()` 计算累积结果。这里得到的是前缀最大值，而不是整个序列的单个最大值；后者可以直接使用 `max(data)`。
 
-#### **13.2 排列：**`permutations()`
+#### 13.2 排列：`permutations()`
 
 **Non-Pythonic**
 
-```
+```python
 result = []
 
 for a in range(1, 4):
@@ -576,7 +551,7 @@ for a in range(1, 4):
 
 **Pythonic**
 
-```
+```python
 import itertools as it
 
 list(it.permutations(range(1, 4)))
@@ -584,18 +559,18 @@ list(it.permutations(range(1, 4)))
 
 输出：
 
-```
+```text
 [(1, 2, 3), (1, 3, 2), (2, 1, 3),
  (2, 3, 1), (3, 1, 2), (3, 2, 1)]
 ```
 
 `permutations(iterable, r)` 生成长度为 `r` 的排列；省略 `r` 时，默认使用全部元素。
 
-#### **13.3 笛卡尔积：**`product()`
+#### 13.3 笛卡尔积：`product()`
 
 **Non-Pythonic**
 
-```
+```python
 result = []
 
 for a in "ABCD":
@@ -605,7 +580,7 @@ for a in "ABCD":
 
 **Pythonic**
 
-```
+```python
 import itertools as it
 
 list(it.product("ABCD", repeat=2))
@@ -613,7 +588,7 @@ list(it.product("ABCD", repeat=2))
 
 输出：
 
-```
+```text
 [('A', 'A'), ('A', 'B'), ('A', 'C'), ('A', 'D'),
  ('B', 'A'), ('B', 'B'), ('B', 'C'), ('B', 'D'),
  ('C', 'A'), ('C', 'B'), ('C', 'C'), ('C', 'D'),
@@ -622,11 +597,11 @@ list(it.product("ABCD", repeat=2))
 
 `product()` 生成多个可迭代对象的笛卡尔积，`repeat` 指定重复使用输入序列的次数。
 
-#### **13.4 反向过滤：**`filterfalse()`
+#### 13.4 反向过滤：`filterfalse()`
 
 **Non-Pythonic**
 
-```
+```python
 result = []
 
 for n in range(100):
@@ -636,7 +611,7 @@ for n in range(100):
 
 **Pythonic**
 
-```
+```python
 import itertools as it
 
 list(it.filterfalse(lambda n: n % 13, range(100)))
@@ -644,7 +619,7 @@ list(it.filterfalse(lambda n: n % 13, range(100)))
 
 输出：
 
-```
+```text
 [0, 13, 26, 39, 52, 65, 78, 91]
 ```
 
@@ -652,43 +627,43 @@ list(it.filterfalse(lambda n: n % 13, range(100)))
 
 在这个特定例子中，还可以更简单地写成：
 
-```
+```python
 list(range(0, 100, 13))
 ```
 
+## Python 之禅
 
+Pythonic 背后的哲学，可以归结为 The Zen of Python 中的几条原则：
 
-## python之禅
-
-Pythonic 背后的哲学，可以归结为 The Zen of Python 中的几条原则
-
-
-
-```
+```python
 import this
 ```
 
+输出：
+
+```text
 The Zen of Python, by Tim Peters
 
-Beautiful is better than ugly.\
-Explicit is better than implicit.\
-Simple is better than complex.\
-Complex is better than complicated.\
-Flat is better than nested.\
-Sparse is better than dense.\
-Readability counts.\
-Special cases aren't special enough to break the rules.\
-Although practicality beats purity.\
-Errors should never pass silently.\
-Unless explicitly silenced.\
-In the face of ambiguity, refuse the temptation to guess.\
-There should be one-- and preferably only one --obvious way to do it.\
-Although that way may not be obvious at first unless you're Dutch.\
-Now is better than never.\
-Although never is often better than *right* now.\
-If the implementation is hard to explain, it's a bad idea.\
-If the implementation is easy to explain, it may be a good idea.\
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
+```
 
 > 译文：
 >
@@ -712,11 +687,8 @@ Namespaces are one honking great idea -- let's do more of those!
 > 如果一种实现容易解释，那它或许是个好主意。\
 > 命名空间是一个绝妙的主意——让我们多多使用它！
 
-
-
 ### 设计理念：“符合直觉”
 
 - 动态类型：变量名无需预先声明类型，可以绑定到不同类型的对象
 - 面向对象编程：一切皆为对象
-
 - 胶水语言（Glue Language）：可以调用 C/C++、Fortran、R 等语言编写的程序和库
