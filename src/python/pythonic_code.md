@@ -521,7 +521,7 @@ div2(123)
 
 
 
-### **13. **`itertools`
+### 13. `itertools`
 
 `itertools` 是 Python 标准库中的迭代工具模块，提供累积运算、排列组合等功能。
 
