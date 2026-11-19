@@ -14,9 +14,10 @@
   - Python 基础
     - [数据类型与基本语法](./python/grammar_and_data_type.md)
     - [控制流语句与函数](./python/function.md)
-    - 面向对象编程
+    - [面向对象编程](./python/oop.md)
+    - [模块与代码架构](./python/module_and_architecture.md)
     - [代码规范](./python/code_standards.md)
-    - Pythonic 代码
+    - [Pythonic 代码](./python/pythonic_code.md)
   - 常用 Python 包
   - 深度学习基础与 PyTorch
 - MATLAB 培训
