@@ -1,6 +1,6 @@
 # 面向对象编程
 
-**Object-Oriented Programming, OOP**
+Object-Oriented Programming, OOP
 
 
 
@@ -129,9 +129,9 @@ print(type(math.sqrt))       # <class 'builtin_function_or_method'>
 
 面向对象编程（Object-Oriented Programming, OOP）的三个重要概念：
 
-- **封装（Encapsulation）**：将数据与操作数据的方法组织在一起，通过接口管理对象的内部状态。
-- **继承（Inheritance）**：在已有类的基础上定义新类，复用或扩展原有功能。
-- **多态（Polymorphism）**：不同类型的对象可以通过相同的接口执行各自的操作。
+- 封装（Encapsulation）：将数据与操作数据的方法组织在一起，通过接口管理对象的内部状态。
+- 继承（Inheritance）：在已有类的基础上定义新类，复用或扩展原有功能。
+- 多态（Polymorphism）：不同类型的对象可以通过相同的接口执行各自的操作。
 
 
 
@@ -147,7 +147,7 @@ print(type(math.sqrt))       # <class 'builtin_function_or_method'>
 
 
 
-#### **1. 类与实例**
+#### 1. 类与实例
 
 ```
 from dataclasses import dataclass
@@ -195,7 +195,7 @@ class Student:
 
 
 
-#### **2. 实例属性与实例方法**
+#### 2. 实例属性与实例方法
 
 实例属性（Instance Attribute）用于保存对象自身的数据，实例方法（Instance Method）用于操作这些数据。
 
@@ -247,7 +247,7 @@ Student.study(student)
 
 
 
-#### **3. 特殊方法**
+#### 3. 特殊方法
 
 Python 使用双下划线包围的方法名定义特殊行为，称为 Dunder Methods（Double Underscore Methods）。
 
@@ -306,11 +306,11 @@ print(v1 + v2)
 
 这种机制称为运算符重载（Operator Overloading）。
 
-需要注意，**可迭代对象只需要提供能够返回迭代器的** `__iter__()`**；迭代器本身则需要实现** `__next__()`**，并通常让** `__iter__()` **返回自身。**
+需要注意，可迭代对象只需要提供能够返回迭代器的 `__iter__()`；迭代器本身则需要实现 `__next__()`，并通常让 `__iter__()` 返回自身。
 
 
 
-#### **4. 属性装饰器：**`@property`
+#### 4. 属性装饰器：`@property`
 
 `@property` 可以将方法包装成属性，使其通过属性访问语法调用。
 
@@ -340,7 +340,7 @@ student.bmi()  # 错误
 
 
 
-#### **5. 静态方法：**`@staticmethod`
+#### 5. 静态方法：`@staticmethod`
 
 静态方法不需要访问实例或类本身，因此不接收隐式的 `self` 或 `cls` 参数。
 
@@ -361,7 +361,7 @@ Student.is_adult(16)  # False
 
 
 
-#### **6. 类方法：**`@classmethod`
+#### 6. 类方法：`@classmethod`
 
 类方法的第一个参数通常命名为 `cls`，表示调用该方法的类。
 
@@ -393,7 +393,7 @@ print(student)
 
 
 
-#### **7. 继承与方法重写**
+#### 7. 继承与方法重写
 
 继承允许子类（Subclass）复用父类（Superclass）的属性和方法。
 
@@ -434,7 +434,7 @@ print(graduate.bmi)
 
 
 
-#### **8. 多态（Polymorphism）**
+#### 8. 多态（Polymorphism）
 
 多态允许不同类型的对象通过相同的接口表现出不同的行为。
 
