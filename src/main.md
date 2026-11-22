@@ -33,4 +33,5 @@
 # 培训视频
 
 + [Linux 培训](https://cloud.tsinghua.edu.cn/f/6d0b85a3e3c94f7b9f12/)
-+ [Python 培训](https://cloud.tsinghua.edu.cn/f/bbe02e98ab4a4b7da8e6/)
++ [Python 1](https://cloud.tsinghua.edu.cn/f/bbe02e98ab4a4b7da8e6/)
++ [Python 2](https://cloud.tsinghua.edu.cn/f/5b5af6db48c84d7b9526/)
